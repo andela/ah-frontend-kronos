@@ -1,8 +1,5 @@
 import React from 'react';
 import { render } from 'react-dom';
-
-const welcomeMessage = 'Aurthors Haven';
-
-const Welcome = () => <p>{welcomeMessage}</p>;
+import Welcome from './app/components/App';
 
 render(<Welcome />, document.getElementById('app'));

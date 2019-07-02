@@ -1,5 +1,8 @@
 # Dependency directory
 /node_modules
+coverage/
 # Build folder
+/build
 /dist
+# lock dependence
 package-lock.json

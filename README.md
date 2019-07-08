@@ -1,7 +1,6 @@
-
 # Authors Haven - A Social platform for the creative at heart
 
-[![Build Status](https://travis-ci.com/andela/ah-frontend-kronos.svg?branch=develop)](https://travis-ci.com/andela/ah-frontend-kronos)
+[![Build Status](https://travis-ci.com/andela/ah-frontend-kronos.svg?branch=develop)](https://travis-ci.com/andela/ah-frontend-kronos) [![Test Coverage](https://api.codeclimate.com/v1/badges/55af35a2538d054a457c/test_coverage)](https://codeclimate.com/github/andela/ah-frontend-kronos/test_coverage) [![Maintainability](https://api.codeclimate.com/v1/badges/55af35a2538d054a457c/maintainability)](https://codeclimate.com/github/andela/ah-frontend-kronos/maintainability)
 
 ## Vision
 

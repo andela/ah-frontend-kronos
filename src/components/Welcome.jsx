@@ -1,9 +1,8 @@
 import React from 'react';
 import './App.scss';
-
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import testAction from '../actions/sampleAction';
+import testAction from '../actions/auth/registrationAction';
 
 export class Welcome extends React.Component {
   componentDidMount() {
@@ -12,7 +11,7 @@ export class Welcome extends React.Component {
   }
 
   render() {
-    return <h1 className="app">Aurthors Haven</h1>;
+    return <h1 className="app">Authors Haven</h1>;
   }
 }
 
@@ -25,7 +24,7 @@ Welcome.propTypes = {
 };
 
 Welcome.defaultProps = {
-  sampleTest: () => {},
+  sampleTest: () => { },
 };
 
 export default connect(

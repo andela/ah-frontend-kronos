@@ -1,4 +1,4 @@
-import sampleReducer from '../../reducers/sampleReducer';
+import sampleReducer from '../../reducers/auth/registrationReducer';
 
 describe('sampleReducer', () => {
   const initialState = {};

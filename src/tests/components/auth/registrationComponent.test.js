@@ -54,17 +54,6 @@ function renderNavigation(args) {
   return shallow(<Navigation {...props} />);
 }
 
-it('should call componentWillMount and set loggedIn to true', () => {
-  const wrapper = renderNavigation();
-  const wrapperInstance = wrapper.instance();
-  jest.spyOn(wrapper, 'setState');
-  sessionStorage.setItem('isLoggedIn', true);
-  wrapperInstance.componentWillMount();
-  expect(wrapperInstance.state.isloggedIn).toBeTruthy();
-  sessionStorage.removeItem('isloggedIn');
-});
-
-
 it('should render Navigation', () => {
   const wrapper = renderNavigation();
   expect(wrapper).toMatchSnapshot();

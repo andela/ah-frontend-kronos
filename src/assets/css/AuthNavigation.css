@@ -139,6 +139,11 @@
   border-color: transparent;
 }
 
+.dropdown, .dropleft, .dropright, .dropup {
+  position: relative;
+  display: inline-block;
+}
+
 @media (max-width: 768px){
   .btn-light {
       display: -webkit-box;

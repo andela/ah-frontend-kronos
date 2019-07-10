@@ -5,6 +5,7 @@ import socialLoginReducer from './auth/socialLoginReducer';
 import articleReducer from './articles/articleReducer';
 import articlesReducer from './articles/articlesReducers';
 import singleArticleReducer from './articles/singleArticleReducer';
+import profileReducer from './profile/profileReducer';
 
 export default combineReducers({
   user: userReducer,
@@ -13,4 +14,5 @@ export default combineReducers({
   articlesReducer,
   singleArticleReducer,
   loginReducer,
+  profile: profileReducer,
 });

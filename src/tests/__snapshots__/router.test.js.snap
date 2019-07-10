@@ -1,0 +1,147 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Routes /> matches snapshot 1`] = `
+<Router
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "/",
+        "search": "",
+        "state": undefined,
+      },
+      "push": [Function],
+      "replace": [Function],
+    }
+  }
+>
+  <Connect(Navigation) />
+  <Switch>
+    <Route
+      component={
+        Object {
+          "$$typeof": Symbol(react.memo),
+          "WrappedComponent": [Function],
+          "compare": null,
+          "displayName": "Connect(Articles)",
+          "type": [Function],
+        }
+      }
+      exact={true}
+      path="/"
+    />
+    <Route
+      component={
+        Object {
+          "$$typeof": Symbol(react.memo),
+          "WrappedComponent": [Function],
+          "compare": null,
+          "displayName": "Connect(SignUpForm)",
+          "type": [Function],
+        }
+      }
+      path="/signup"
+    />
+    <PrivateRoute
+      component={
+        Object {
+          "$$typeof": Symbol(react.memo),
+          "WrappedComponent": [Function],
+          "compare": null,
+          "displayName": "Connect(UpdateProfile)",
+          "type": [Function],
+        }
+      }
+      exact={true}
+      isAuthenticated={null}
+      path="/editProfile"
+    />
+    <PrivateRoute
+      component={
+        Object {
+          "$$typeof": Symbol(react.memo),
+          "WrappedComponent": [Function],
+          "compare": null,
+          "displayName": "Connect(ViewProfile)",
+          "type": [Function],
+        }
+      }
+      exact={true}
+      isAuthenticated={null}
+      path="/viewProfile"
+    />
+    <Route
+      component={
+        Object {
+          "$$typeof": Symbol(react.memo),
+          "WrappedComponent": [Function],
+          "compare": null,
+          "displayName": "Connect(LoginContainer)",
+          "type": [Function],
+        }
+      }
+      path="/login"
+    />
+    <PrivateRoute
+      component={
+        Object {
+          "$$typeof": Symbol(react.memo),
+          "WrappedComponent": [Function],
+          "compare": null,
+          "displayName": "Connect(EditArticle)",
+          "type": [Function],
+        }
+      }
+      isAuthenticated={null}
+      path="/update-article"
+    />
+    <PrivateRoute
+      component={
+        Object {
+          "$$typeof": Symbol(react.memo),
+          "WrappedComponent": [Function],
+          "compare": null,
+          "displayName": "Connect(CreateArticle)",
+          "type": [Function],
+        }
+      }
+      isAuthenticated={null}
+      path="/create-article"
+    />
+    <PrivateRoute
+      component={
+        Object {
+          "$$typeof": Symbol(react.memo),
+          "WrappedComponent": [Function],
+          "compare": null,
+          "displayName": "Connect(Articles)",
+          "type": [Function],
+        }
+      }
+      isAuthenticated={null}
+      path="/articles"
+    />
+    <Route
+      component={
+        Object {
+          "$$typeof": Symbol(react.memo),
+          "WrappedComponent": [Function],
+          "compare": null,
+          "displayName": "Connect(Article)",
+          "type": [Function],
+        }
+      }
+      path="/:slug"
+    />
+  </Switch>
+  <Footer />
+</Router>
+`;

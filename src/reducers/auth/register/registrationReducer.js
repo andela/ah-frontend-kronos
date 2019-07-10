@@ -1,7 +1,8 @@
 import { RegistrationConstants } from '../../../actions/actionTypes';
-import { initialRegistrationlState } from '../../initialState';
+import { initialRegistrationState } from '../../initialState';
 
-export default function userReducer(state = initialRegistrationlState, action) {
+
+export default function userReducer(state = initialRegistrationState, action) {
   switch (action.type) {
     case RegistrationConstants.REGISTER_SUCCESS:
       return Object.assign(

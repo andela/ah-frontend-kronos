@@ -1,8 +1,9 @@
 // Define a color variable
 $color-blue: #0059ff;
- 
+
 .app {
   color: $color-blue;
-  font-size: 10rem;
+  font-size: 2rem;
   text-align: center;
+  padding: 20%;
 }

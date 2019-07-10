@@ -21,6 +21,7 @@
   },
   "parser": "babel-eslint",
   "rules": {
+    "no-shadow": "off",
     "no-debugger": "off",
     "no-console": "off",
     "no-unused-vars": "warn",

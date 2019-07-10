@@ -6,6 +6,8 @@ import SignUpForm from './components/auth/registration/SignUpForm'; // eslint-di
 import AuthNavigation from './components/common/navigation/AuthNavigation';
 import history from './utils/history';
 
+import Login from './components/Login';
+import SocialLoginSuccess from './components/social/SuccessPage';
 
 function Routes() {
   return (
@@ -14,6 +16,8 @@ function Routes() {
       <Switch>
         <Route exact path="/" component={Welcome} />
         <Route path="/signup" component={SignUpForm} />
+        <Route path="/login" component={Login} />
+        <Route path="/successpage" component={SocialLoginSuccess} />
       </Switch>
     </Router>
   );

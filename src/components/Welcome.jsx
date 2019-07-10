@@ -21,7 +21,11 @@ export const mapStateToProps = state => ({
 });
 
 Welcome.propTypes = {
-  sampleTest: PropTypes.func.isRequired,
+  sampleTest: PropTypes.func,
+};
+
+Welcome.defaultProps = {
+  sampleTest: () => {},
 };
 
 export default connect(

@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
-import userReducer from './auth/registrationReducer';
+import userReducer from './auth/register/registrationReducer';
+import loginReducer from './auth/login/loginReducer';
 import socialLoginReducer from './auth/socialLoginReducer';
 import articleReducer from './articles/articleReducer';
 import articlesReducer from './articles/articlesReducers';
@@ -11,4 +12,5 @@ export default combineReducers({
   article: articleReducer,
   articlesReducer,
   singleArticleReducer,
+  loginReducer,
 });

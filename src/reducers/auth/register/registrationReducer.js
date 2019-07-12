@@ -1,5 +1,5 @@
-import { RegistrationConstants } from '../../actions/actionTypes';
-import { initialRegistrationlState } from '../initialState';
+import { RegistrationConstants } from '../../../actions/actionTypes';
+import { initialRegistrationlState } from '../../initialState';
 
 export default function userReducer(state = initialRegistrationlState, action) {
   switch (action.type) {

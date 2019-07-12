@@ -1,4 +1,4 @@
-const initialSocialAuthenticationState = {
+export const initialSocialAuthenticationState = {
   FacebookToken: null,
   isFacebookLoggedIn: false,
   GoogleToken: null,
@@ -24,4 +24,8 @@ export const initialArticlesState = {
   isFetching: true,
   articles: [],
 };
-export default initialSocialAuthenticationState;
+
+export const initialUser = {
+  isUserLoggedIn: false,
+  isLoggingIn: null,
+};

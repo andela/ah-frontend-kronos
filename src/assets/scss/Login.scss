@@ -46,8 +46,10 @@ $background_color_1: #ffffff;
       }
     }
     .or-seperator {
-      margin-left: 50%;
-      padding: 4px;
+      margin: auto;
+      width: 100%;
+      padding: 25px;
+      text-align: center;
     }
     .forgot {
       display: block;
@@ -82,5 +84,11 @@ $background_color_1: #ffffff;
 .i {
   color: rgb(16, 75, 137);
 }
-
-
+.or{
+  text-align: center;
+  margin: auto;
+  width: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

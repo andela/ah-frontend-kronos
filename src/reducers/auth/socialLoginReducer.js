@@ -7,7 +7,7 @@ import {
   FACEBOOK_AUTH_SUCCESS,
   FACEBOOK_AUTH_FAIL,
 } from '../../actions/socialLoginTypes';
-import initialSocialAuthenticationState from '../initialState';
+import { initialSocialAuthenticationState } from '../initialState';
 
 const socialLoginReducer = (state = initialSocialAuthenticationState, action) => {
   switch (action.type) {

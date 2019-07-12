@@ -152,7 +152,7 @@ export class SignUpForm extends Component {
               <Link to="/" className="already">Changed your mind? Cancel registration.</Link>
             </div>
             <Button className="btn btn-primary btn-block">Signup</Button>
-            <Link to="/" className="already">You already have an account? Login here.</Link>
+            <Link to="/login" className="already">You already have an account? Login here.</Link>
           </form>
         </div>
       </div>

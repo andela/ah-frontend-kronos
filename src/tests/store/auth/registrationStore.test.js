@@ -18,3 +18,7 @@ it('should handle registering users', () => {
   const expectedResponse = store.getState().user;
   expect(expectedResponse).toEqual(responseData);
 });
+
+it('test', () => {
+  expect(true).toEqual(true);
+});

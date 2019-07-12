@@ -1,4 +1,4 @@
-import userReducer from '../../../reducers/auth/registrationReducer';
+import userReducer from '../../../reducers/auth/register/registrationReducer';
 import * as registrationActions from '../../../actions/auth/registrationAction';
 
 const initialState = {};

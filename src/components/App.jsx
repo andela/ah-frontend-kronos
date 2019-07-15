@@ -3,7 +3,6 @@ import { Provider } from 'react-redux';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import store from '../store';
-
 import Routes from '../Routes';
 
 export default function App() {

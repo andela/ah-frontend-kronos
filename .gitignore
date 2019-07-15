@@ -6,4 +6,3 @@ coverage/
 /dist
 # lock dependence
 package-lock.json
-.env

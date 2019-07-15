@@ -1,0 +1,74 @@
+.register-photo {
+    background: #f1f7fc;
+    padding: 80px 0;
+    .image-holder {
+      display: table-cell;
+      width: auto;
+      background: url(../img/meeting.jpg);
+      background-size: cover;
+    }
+    .form-container {
+      display: table;
+      max-width: 900px;
+      width: 90%;
+      margin: 0 auto;
+      box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+    }
+    form {
+      display: table-cell;
+      width: 400px;
+      background-color: #ffffff;
+      padding: 40px 60px;
+      color: #505e6c;
+      h2 {
+        font-size: 24px;
+        line-height: 1.5;
+        margin-bottom: 30px;
+      }
+      .form-control {
+        background: #f7f9fc;
+        border: none;
+        border-bottom: 1px solid #dfe7f1;
+        border-radius: 0;
+        box-shadow: none;
+        outline: none;
+        color: inherit;
+        text-indent: 6px;
+        height: 40px;
+      }
+      .form-check {
+        font-size: 13px;
+        line-height: 20px;
+      }
+      .btn-primary {
+        background: #505e6c;
+        border: none;
+        border-radius: 4px;
+        padding: 11px;
+        box-shadow: none;
+        text-shadow: none;
+        outline: none !important;
+        &:hover {
+          background: rgb(2,56,115);
+        }
+        &:active {
+          background: rgb(2,56,115);
+          transform: translateY(1px);
+        }
+      }
+      .already {
+        display: block;
+        text-align: center;
+        font-size: 12px;
+        color: #6f7a85;
+        opacity: 0.9;
+        text-decoration: none;
+      }
+    }
+  }
+
+  @media (max-width: 991px) {
+    .register-photo form {
+      padding: 40px;
+    }
+  }

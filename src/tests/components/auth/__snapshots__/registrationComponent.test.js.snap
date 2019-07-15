@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`registration page should match the snapshot 1`] = `ShallowWrapper {}`;
+
+exports[`registration page should render Loading in form 1`] = `ShallowWrapper {}`;
+
+exports[`should render Navigation 1`] = `ShallowWrapper {}`;

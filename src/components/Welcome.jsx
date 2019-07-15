@@ -1,8 +1,8 @@
 import React from 'react';
+import './App.scss';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import testAction from '../actions/auth/registrationAction';
-import '../assets/scss/App.scss';
 
 export class Welcome extends React.Component {
   componentDidMount() {
@@ -11,9 +11,10 @@ export class Welcome extends React.Component {
   }
 
   render() {
-    return <h1 className="app">Welcome to Authors Haven</h1>;
+    return <h1 className="app">Authors Haven</h1>;
   }
 }
+
 export const mapStateToProps = state => ({
   test: state.test,
 });
@@ -23,7 +24,7 @@ Welcome.propTypes = {
 };
 
 Welcome.defaultProps = {
-  sampleTest: () => {},
+  sampleTest: () => { },
 };
 
 export default connect(

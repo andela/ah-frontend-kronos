@@ -12,5 +12,6 @@ describe('<Welcome />', () => {
     };
     const wrapper = mount(<Welcome {...props} />);
     expect(wrapper.find('h1').length).toBe(1);
+    console.log(wrapper);
   });
 });

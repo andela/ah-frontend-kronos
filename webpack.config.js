@@ -3,7 +3,12 @@ const Dotenv = require('dotenv-webpack');
 const path = require('path');
 
 module.exports = {
-  entry: './src/index',
+  entry: './src/index.js',
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'main.js',
+    publicPath: '/',
+  },
   devtool: 'cheap-module-source-map',
   devServer: {
     stats: 'minimal',
@@ -36,6 +41,8 @@ module.exports = {
             // Using file-loader for these files
             loader: 'file-loader',
           },
+          'style-loader',
+          'css-loader',
         ],
       },
     ],
@@ -51,5 +58,12 @@ module.exports = {
   ],
   resolve: {
     extensions: ['*', '.js', '.jsx'],
+    alias: {
+      pages: path.resolve(__dirname, 'src/pages/'),
+      components: path.resolve(__dirname, 'src/components/'),
+      store: path.resolve(__dirname, 'src/store/'),
+      utils: path.resolve(__dirname, 'src/utils/'),
+      assets: path.resolve(__dirname, 'src/assets/'),
+    },
   },
 };

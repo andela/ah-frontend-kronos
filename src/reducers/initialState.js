@@ -20,6 +20,11 @@ export const initialArticleState = {
   article: {},
 };
 
+export const initialLikeDislikeArticleState = {
+  liking: false,
+  disliking: false,
+};
+
 export const initialArticlesState = {
   isFetching: true,
   articles: [],

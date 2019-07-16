@@ -21,13 +21,11 @@
   },
   "homepage": "https://github.com/andela/ah-frontend-kronos#readme",
   "dependencies": {
-    "@babel/plugin-proposal-class-properties": "^7.5.0",
     "axios": "^0.19.0",
     "dotenv-webpack": "^1.7.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "fetch-mock": "^7.3.6",
-    "file-loader": "^4.0.0",
     "firebase": "^6.3.1",
     "history": "^4.9.0",
     "jwt-decode": "^2.2.0",
@@ -42,10 +40,7 @@
     "react-toastify": "^5.3.1",
     "redux": "^4.0.1",
     "redux-devtools-extension": "^2.13.8",
-    "redux-thunk": "^2.3.0",
-    "react-test-renderer": "^16.8.6",
-    "redux-mock-store": "^1.5.3",
-    "url-loader": "^2.0.1"
+    "redux-thunk": "^2.3.0"
   },
   "jest": {
     "setupFilesAfterEnv": [
@@ -91,6 +86,7 @@
     "redux-mock-store": "^1.5.3",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
+    "url-loader": "^2.1.0",
     "webpack": "^4.35.0",
     "webpack-cli": "^3.3.5",
     "webpack-dev-server": "^3.7.2"

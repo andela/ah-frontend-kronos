@@ -35,7 +35,7 @@ const Login = () => (
           <a href="articles.html">LOGIN</a>
         </button>
       </div>
-      <a href="www.google.com" className="forgot">
+      <a href="/resetpassword" className="forgot">
           Forgot your email or password?
       </a>
     </form>

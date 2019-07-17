@@ -1,22 +1,7 @@
-.footer-article {
-  position: relative;
-  top: 71vh;
-}
-
-form {
+.create-article-section form {
   width: 60%;
   margin: auto;
   height: 70%;
-}
-
-.article-details {
-  justify-content: space-around;
-  font-size: 15px;
-  display: flex;
-}
-
-.article-row.article-details {
-  width: 12px;
 }
 
 .article-dual-column.create-article {

@@ -58,7 +58,7 @@ const LoginGoogle = token => (dispatch) => {
       sessionStorage.setItem('isLoggedIn', true);
       dispatch(googleSuccess(resp));
 
-      history.push('/successpage');
+      history.push('/articles');
     })
     .catch((error) => {
       dispatch(googleFail(error));

@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import Input from '../common/Input';
 import Button from '../common/Button';
 import TextField from '../common/TextField';
@@ -111,7 +112,9 @@ export class CreateArticle extends Component {
             </ul>
           </div>
           <div className="form-group">
-            <Button className="btn btn-danger">Cancel</Button>
+            <Link to="/articles" className="btn btn-danger">
+              Cancel
+            </Link>
             <Button className="btn btn-primary" type="button">Create Article</Button>
           </div>
         </form>

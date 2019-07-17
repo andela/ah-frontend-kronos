@@ -57,7 +57,7 @@ export function registerArticle(newArticle) {
       .then((response) => {
         dispatch(ArticleSuccess(response.data));
         toastSuccess('Article created successfully', 'A');
-        history.push('/article-view');
+        history.push(`/${response.data.article.slug}`);
       })
       .catch((error) => {
         toastFailure('Article creation failed. Authetication credentials were not provided', 'A');
@@ -83,11 +83,11 @@ export function updateArticle(newArticle, articleSlug) {
       )
       .then((response) => {
         dispatch(ArticleSuccess(response.data));
-        toastSuccess('Article successfully updfated', 'A');
-        history.push('/article-view');
+        toastSuccess('Article successfully updated', 'A');
+        history.push(`/${articleSlug}`);
       })
       .catch((error) => {
-        toastFailure('Article creation failed. Authetication credentials were not provided', 'A');
+        toastFailure('You do not have the rights to update this article', 'A');
         dispatch(ArticleFail(error.response.data));
       });
   };
@@ -107,10 +107,10 @@ export function deleteArticle(articleSlug) {
       .then((response) => {
         dispatch(ArticleDeleteSuccess(response.data));
         toastSuccess('Article deleted successfully.', 'A');
-        history.push('/article-view');
+        history.push('/articles');
       })
       .catch((error) => {
-        toastFailure('Article deletion failed.', 'A');
+        toastFailure('You do not have the rights to delete this article', 'A');
         dispatch(ArticleDeleteFail(error.response.data));
       });
   };

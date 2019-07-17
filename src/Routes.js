@@ -9,8 +9,8 @@ import history from './utils/history';
 import CreateArticle from './components/articles/CreateArticle';
 import EditArticle from './components/articles/EditArticle';
 import Login from './components/Login';
-import SocialLoginSuccess from './components/social/SuccessPage';
-import DeleteArticle from './components/articles/DeleteArticle';
+import Articles from './components/articles/articlesComponent';
+import Article from './components/articles/articleComponent';
 
 function Routes() {
   return (
@@ -20,10 +20,10 @@ function Routes() {
         <Route exact path="/" component={Welcome} />
         <Route path="/signup" component={SignUpForm} />
         <Route path="/login" component={Login} />
-        <Route path="/successpage" component={SocialLoginSuccess} />
         <Route path="/update-article" component={EditArticle} />
         <Route path="/create-article" component={CreateArticle} />
-        <Route path="/delete-article" component={DeleteArticle} />
+        <Route path="/articles" component={Articles} />
+        <Route path="/:slug" component={Article} />
       </Switch>
     </Router>
   );

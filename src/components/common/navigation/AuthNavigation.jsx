@@ -54,42 +54,9 @@ export class Navigation extends React.Component {
                   <Link to="/create-article" className="btn btn-light action-buttons">
                     Create Article
                   </Link>
-                  <Link
-                    to={{
-                      pathname: '/update-article',
-                      state: {
-                        articleData: {
-                          title: 'title',
-                          description: 'description',
-                          body: 'body',
-                          slug: 'a',
-                          image: 'image',
-                        },
-                      },
-                    }}
-                    className="btn btn-light action-buttons"
-                  >
-                    Edit Article
-                  </Link>
+                  <Link to="/articles" className="btn btn-light action-buttons">View Articles</Link>
                   <Link to="/logout" className="btn btn-light action-buttons">
                     Logout
-                  </Link>
-                  <Link
-                    to={{
-                      pathname: '/delete-article',
-                      state: {
-                        articleData: {
-                          title: 'My new title',
-                          description: 'description',
-                          body: 'body',
-                          slug: 'a-1',
-                          image: 'image',
-                        },
-                      },
-                    }}
-                    className="btn btn-light action-buttons"
-                  >
-                    Delete Article
                   </Link>
                 </React.Fragment>
               ) : (

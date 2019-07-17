@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Input from '../common/Input';
 import Button from '../common/Button';
@@ -42,7 +43,7 @@ export class EditArticle extends Component {
     this.setState({
       [event.target.name]: event.target.value,
     });
-  }
+  };
 
   handleSubmit = (event) => {
     event.preventDefault();
@@ -51,11 +52,14 @@ export class EditArticle extends Component {
     } = this.state;
     const { actions } = this.props;
     const newarticle = {
-      title, description, body, image,
+      title,
+      description,
+      body,
+      image,
     };
     actions.updateArticle(newarticle, slug);
     this.handleClearForm();
-  }
+  };
 
   handleClearForm() {
     this.setState({
@@ -68,11 +72,7 @@ export class EditArticle extends Component {
 
   render() {
     const {
-      title,
-      description,
-      body,
-      image,
-      slug,
+      title, description, body, image, slug,
     } = this.state;
     return (
       <section className="create-article-section">
@@ -128,11 +128,14 @@ export class EditArticle extends Component {
             required={false}
           />
           <div className="form-group">
-            <Button className="btn btn-danger">Cancel</Button>
-            <Button className="btn btn-primary" type="submit">Update Article</Button>
+            <Link to={slug} className="btn btn-danger">
+              Cancel
+            </Link>
+            <Button className="btn btn-primary" type="submit">
+              Update Article
+            </Button>
           </div>
         </form>
-
       </section>
     );
   }
@@ -155,4 +158,7 @@ export const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators(articleActions, dispatch),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(EditArticle);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(EditArticle);

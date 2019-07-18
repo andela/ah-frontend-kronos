@@ -1,7 +1,7 @@
 import socialLoginreducer from '../../../reducers/auth/socialLoginReducer';
 
 describe('FacebookReducer', () => {
-  const initialState = { FacebookToken: null, isFacebookLoggedIn: false };
+  const initialState = { FacebookToken: null, isFacebookLoggedIn: false, logged_in: false };
 
   it('should return FACEBOOK_AUTH_SUCCESS', () => {
     const FacebookAuthSuccessAction = {
@@ -9,7 +9,9 @@ describe('FacebookReducer', () => {
     };
     const successState = {
       isFacebookLoggedIn: true,
+      logged_in: true,
     };
+    expect(socialLoginreducer(initialState, FacebookAuthSuccessAction)).toEqual(successState);
     expect(socialLoginreducer(initialState, FacebookAuthSuccessAction)).toEqual(successState);
   });
   it('should return FACEBOOK_AUTH_FAIL', () => {
@@ -27,6 +29,7 @@ describe('FacebookReducer', () => {
       isAuthenticating: true,
       isFacebookLoggedIn: false,
       FacebookToken: null,
+      logged_in: false,
     };
 
     expect(socialLoginreducer(initialState, FacebookAuthAction)).toEqual(successState);
@@ -41,6 +44,7 @@ describe('GoogleReducer', () => {
     };
     const successState = {
       isGoogleLoggedIn: true,
+      logged_in: true,
     };
     expect(socialLoginreducer(initialState, GoogleAuthSuccessAction)).toEqual(successState);
   });

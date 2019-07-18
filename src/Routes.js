@@ -12,7 +12,6 @@ import Login from './components/Login';
 import SocialLoginSuccess from './components/social/SuccessPage';
 import DeleteArticle from './components/articles/DeleteArticle';
 
-
 function Routes() {
   return (
     <Router history={history}>

@@ -20,5 +20,4 @@ export const initialArticleState = {
   article: {},
 };
 
-
 export default initialSocialAuthenticationState;

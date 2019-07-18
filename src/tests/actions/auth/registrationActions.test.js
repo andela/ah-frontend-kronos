@@ -3,7 +3,7 @@ import moxios from 'moxios';
 import axios from 'axios';
 import configureMockStore from 'redux-mock-store';
 import * as registrationActions from '../../../actions/auth/registrationAction';
-import { RegistrationConstants } from '../../../actions/auth/actionTypes';
+import { RegistrationConstants } from '../../../actions/actionTypes';
 
 const middleware = [thunk];
 const mockStore = configureMockStore(middleware);

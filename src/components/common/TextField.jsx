@@ -1,49 +1,49 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Input = (props) => {
+const TextField = (props) => {
   const {
     name,
-    type,
     value,
     handleChange,
     placeholder,
     onBlur,
     className,
+    rows,
     fieldError,
     required,
   } = props;
   return (
     <div className="form-group">
-      <input
-        className={className}
+      <textarea
         name={name}
-        type={type}
+        onBlur={onBlur}
+        rows={rows}
+        placeholder={placeholder}
+        className={className}
         value={value}
         onChange={handleChange}
-        placeholder={placeholder}
-        onBlur={onBlur}
         required={required}
       />
       <div className="invalid-feedback">{fieldError}</div>
-
     </div>
   );
 };
-Input.defaultProps = {
+
+TextField.defaultProps = {
   fieldError: '',
-  onBlur: () => {},
-  handleChange: () => {},
   required: true,
-  value: '',
+  onBlur: () => { },
+  handleChange: () => { },
   name: '',
+  value: '',
   placeholder: '',
   className: '',
+  rows: '',
 };
 
-Input.propTypes = {
+TextField.propTypes = {
   name: PropTypes.string,
-  type: PropTypes.string.isRequired,
   value: PropTypes.string,
   handleChange: PropTypes.func,
   placeholder: PropTypes.string,
@@ -51,6 +51,8 @@ Input.propTypes = {
   className: PropTypes.string,
   fieldError: PropTypes.string,
   required: PropTypes.bool,
+  rows: PropTypes.string,
 };
 
-export default Input;
+
+export default TextField;

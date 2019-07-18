@@ -54,10 +54,11 @@ const LoginGoogle = token => (dispatch) => {
     )
     .then((resp) => {
       sessionStorage.setItem('token', resp.data.user.token);
-      sessionStorage.setItem('user_email', resp.data.user.email);
+      sessionStorage.setItem('username', resp.data.user.username);
+      sessionStorage.setItem('isLoggedIn', true);
       dispatch(googleSuccess(resp));
 
-      history.push('/successpage');
+      history.push('/articles');
     })
     .catch((error) => {
       dispatch(googleFail(error));

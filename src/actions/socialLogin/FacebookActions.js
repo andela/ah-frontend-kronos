@@ -44,6 +44,7 @@ const LoginFacebook = token => (dispatch) => {
     .then((resp) => {
       sessionStorage.setItem('token', resp.data.user.token);
       sessionStorage.setItem('user_email', resp.data.user.email);
+      sessionStorage.setItem('isLoggedIn', true);
       dispatch(facebookSuccess(resp));
 
       history.push('/successpage');

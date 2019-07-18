@@ -4,7 +4,7 @@ import Input from '../../../components/common/Input';
 import Button from '../../../components/common/Button';
 import { SignUpForm, mapStateToProps } from '../../../components/auth/registration/SignUpForm';
 import Loading from '../../../components/common/Loading';
-import Navigation from '../../../components/common/navigation/AuthNavigation';
+import { Navigation } from '../../../components/common/navigation/AuthNavigation';
 
 function renderInputField(args) {
   const defaultProps = {
@@ -44,9 +44,26 @@ function renderLoading() {
   return shallow(<Loading />);
 }
 
-function renderNavigation() {
-  return shallow(<Navigation />);
+function renderNavigation(args) {
+  const defaultProps = {
+    nextProps: {
+      loggedIn: false,
+    },
+  };
+  const props = { ...defaultProps, ...args };
+  return shallow(<Navigation {...props} />);
 }
+
+it('should call componentWillMount and set loggedIn to true', () => {
+  const wrapper = renderNavigation();
+  const wrapperInstance = wrapper.instance();
+  jest.spyOn(wrapper, 'setState');
+  sessionStorage.setItem('isLoggedIn', true);
+  wrapperInstance.componentWillMount();
+  expect(wrapperInstance.state.isloggedIn).toBeTruthy();
+  sessionStorage.removeItem('isloggedIn');
+});
+
 
 it('should render Navigation', () => {
   const wrapper = renderNavigation();

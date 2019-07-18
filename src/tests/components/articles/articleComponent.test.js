@@ -30,7 +30,11 @@ describe('Article Component', () => {
   it('should return article', () => {
     const mockState = { singleArticleReducer: { article: testArticle, isFetching: false } };
     const singleArticleProps = mapStateToProps(mockState);
-    expect(singleArticleProps).toEqual({ article: testArticle, isFetching: false });
+    expect(singleArticleProps).toStrictEqual({
+      article: testArticle,
+      isFetching: false,
+      comments: undefined,
+    });
   });
   it('should display loader while fetching', () => {
     component.setProps({ isFetching: true });

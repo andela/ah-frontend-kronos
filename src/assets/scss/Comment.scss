@@ -1,0 +1,90 @@
+$circular: 50%;
+$square-image: 220px;
+$btn-display: inline-block;
+$btn-font-weight: 400;
+$btn-margin-left: 5px;
+$text-align: center;
+$vertical-align: middle;
+$btn-webkit-user-select: none;
+$btn-moz-user-select: none;
+$btn-ms-user-select: none;
+$btn-user-select: none;
+$btn-padding: .375rem .75rem;
+$btn-font-size: 1rem;
+$btn-line-height: 1.5;
+$btn-border-radius: .25rem;
+$red-color: red;
+$btn-font-size: 1rem;
+$btn-line-height: 1.5;
+$btn-border-radius: .25rem;
+$white-color: #fff;
+$blue-color: #023873;
+
+.fa-paper-plane, .fa-edit {
+    color:  $blue-color;
+}
+
+.fa-window-close, .fa-trash {
+    color: $red-color;
+}
+
+.comment-author{
+    color: $blue-color;
+    font-size: 1.5vw;
+}
+
+.form-comment {
+  width: 65vw;
+}
+
+.text-body {
+  font-size: 1.4vw;
+}
+
+.font-btn {
+  padding: 0;
+}
+
+.text-secondary {
+  font-size: 1.2vw;
+  font-style: italic;
+  padding: 0;
+}
+
+.card-row {
+  padding: 0;
+}
+
+[type=submit] {
+    display: $btn-display;
+    font-weight: $btn-font-weight;
+    text-align: $text-align;
+    vertical-align: $vertical-align;
+    -webkit-user-select: $btn-webkit-user-select;
+    -moz-user-select: $btn-moz-user-select;
+    -ms-user-select: $btn-ms-user-select;
+    user-select: $btn-user-select;
+    padding: $btn-padding;
+    font-size: $btn-font-size;
+    line-height: $btn-line-height;
+    border-radius: $btn-border-radius;
+    color: $white-color;
+    margin-bottom: 10px;
+  }
+  
+.reset {
+    margin-left: 5px;
+    background-color: $red-color;
+    border: 1px solid $red-color;
+  }
+  
+.fluid {
+  width: 5vw;
+  height: 5vw;
+}
+    
+[type=submit] {
+    color: $white-color;
+    background-color: $blue-color;
+    border: 1px solid $blue-color;
+  }

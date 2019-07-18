@@ -13,6 +13,10 @@ import { likingArticle } from '../../actions/articles/likeDislikeAction';
 import { followAuthorAction, unfollowAuthorAction } from '../../actions/profile/followActions';
 import FollowButton from '../common/FollowButton';
 import RateArticleComponentContainer from './rating/RateArticleComponentContainer';
+import { ArticleComment } from '../comment/ArticleComment';
+import {
+  postComment, fetchComment, editComment, deleteComment,
+} from '../../actions/comment/articleCommentAction';
 
 export class Article extends Component {
   constructor(props) {
@@ -89,7 +93,11 @@ export class Article extends Component {
 
   render() {
     const { hasLiked, likesCount, disLikeCount } = this.state;
-    const { article, isFetching } = this.props;
+    const {
+      article, isFetching, comments, createComment,
+      getComment, updateComment, removeComment,
+      match: { params: { slug } },
+    } = this.props;
     const createdAt = new Date(article.created_at).toLocaleDateString('en-GB', {
       day: 'numeric',
       month: 'short',
@@ -102,12 +110,14 @@ export class Article extends Component {
 
 
     return (
-      <div className="article-dual-column">
-        <div className="container">
-          <div className="row row-img">
-            <div className="col-md-10 offset-md-1">
-              <div className="intro">
-                <h1 className="text-center">{article.title}</h1>
+      <React.Fragment>
+        <div className="article-dual-column">
+          <div className="container">
+            <div className="row row-img">
+              <div className="col-md-10 offset-md-1">
+                <div className="intro">
+                  <h1 className="text-center">{article.title}</h1>
+                </div>
               </div>
             </div>
           </div>
@@ -269,7 +279,15 @@ read
             </div>
           </section>
         </div>
-      </div>
+        <ArticleComment
+          slug={slug}
+          comments={comments}
+          createComment={createComment}
+          getComment={getComment}
+          updateComment={updateComment}
+          removeComment={removeComment}
+        />
+      </React.Fragment>
     );
   }
 }
@@ -284,18 +302,27 @@ Article.propTypes = {
       slug: PropTypes.string.isRequired,
     }),
   }).isRequired,
+  comments: PropTypes.shape({}),
+  getComment: PropTypes.func,
+  createComment: PropTypes.func,
+  updateComment: PropTypes.func,
+  removeComment: PropTypes.func,
 };
+
 Article.defaultProps = {
   article: {},
+  comments: {},
   deleteArticle: () => {},
   likingArticle: () => {},
+  getComment: () => {},
+  createComment: () => {},
+  updateComment: () => {},
+  removeComment: () => {},
 };
+
 export const mapStateToProps = (state) => {
   const { article, isFetching } = state.singleArticleReducer;
-  return {
-    article,
-    isFetching,
-  };
+  return { article, isFetching, comments: state.comments };
 };
 
 export default connect(
@@ -304,5 +331,9 @@ export default connect(
     getSingleArticle,
     deleteArticle,
     likingArticle,
+    createComment: postComment,
+    getComment: fetchComment,
+    updateComment: editComment,
+    removeComment: deleteComment,
   },
 )(Article);

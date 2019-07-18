@@ -10,6 +10,7 @@ import articlesLikeReducer from './articles/articleLikeDislikeReducer';
 import reportReducer from './articles/reportReducer';
 import followReducer from './profile/followReducer';
 import rateArticlesReducer from './articles/rating/ratingArticleReducer';
+import commentReducer from './comment/commentReducer';
 
 export default combineReducers({
   user: userReducer,
@@ -23,4 +24,5 @@ export default combineReducers({
   reportReducer,
   followReducer,
   rateArticlesReducer,
+  comments: commentReducer,
 });

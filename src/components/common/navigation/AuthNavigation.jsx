@@ -2,6 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../../../assets/css/AuthNavigation.css';
+import { connect } from 'react-redux';
 
 export class Navigation extends React.Component {
   constructor(props) {
@@ -89,4 +90,4 @@ export const mapStateToProps = state => ({
   loggedIn: state.socialLoginReducer,
 });
 
-export default Navigation;
+export default connect(mapStateToProps)(Navigation);

@@ -13,7 +13,6 @@ export const initialRegistrationlState = {
 };
 
 export const initialArticleState = {
-  loggedin: true,
   creating: false,
   created: false,
   article: {},

@@ -112,7 +112,7 @@ export class CreateArticle extends Component {
           </div>
           <div className="form-group">
             <Button className="btn btn-danger">Cancel</Button>
-            <Button className="btn btn-primary" type="button">Save Article</Button>
+            <Button className="btn btn-primary" type="button">Create Article</Button>
           </div>
         </form>
 

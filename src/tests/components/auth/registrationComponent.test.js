@@ -4,7 +4,7 @@ import Input from '../../../components/common/Input';
 import Button from '../../../components/common/Button';
 import { SignUpForm, mapStateToProps } from '../../../components/auth/registration/SignUpForm';
 import Loading from '../../../components/common/Loading';
-import Navigation from '../../../components/common/navigation/AuthNavigation';
+import { Navigation } from '../../../components/common/navigation/AuthNavigation';
 
 function renderInputField(args) {
   const defaultProps = {

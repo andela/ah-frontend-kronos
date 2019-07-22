@@ -7,9 +7,9 @@ import {
   FACEBOOK_AUTH_SUCCESS,
   FACEBOOK_AUTH_FAIL,
 } from '../../actions/socialLoginTypes';
-import initialUser from '../initialState';
+import initialSocialAuthenticationState from '../initialState';
 
-const socialLoginReducer = (state = initialUser, action) => {
+const socialLoginReducer = (state = initialSocialAuthenticationState, action) => {
   switch (action.type) {
     case GOOGLE_AUTHENTICATION:
       return {
@@ -21,6 +21,7 @@ const socialLoginReducer = (state = initialUser, action) => {
         ...state,
         isGoogleLoggedIn: true,
         GoogleToken: action.payload,
+        logged_in: true,
       };
     case GOOGLE_AUTH_FAIL:
       return {
@@ -40,6 +41,7 @@ const socialLoginReducer = (state = initialUser, action) => {
         ...state,
         isFacebookLoggedIn: true,
         FacebookToken: action.payload,
+        logged_in: true,
       };
     case FACEBOOK_AUTH_FAIL:
       return {

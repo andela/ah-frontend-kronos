@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { RegistrationConstants } from './actionTypes';
+import { RegistrationConstants } from '../actionTypes';
 import { toastSuccess, toastFailure } from '../../utils/toast';
 import history from '../../utils/history';
 
@@ -46,8 +46,3 @@ export function registerUser(newUser) {
       });
   };
 }
-const testAction = () => ({
-  type: 'SAMPLE_STRING',
-  message: 'yoooo rita',
-});
-export default testAction;

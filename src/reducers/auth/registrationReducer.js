@@ -1,7 +1,7 @@
-import { RegistrationConstants } from '../../actions/auth/actionTypes';
-import { initialUser } from './initialState';
+import { RegistrationConstants } from '../../actions/actionTypes';
+import { initialRegistrationlState } from '../initialState';
 
-export default function userReducer(state = initialUser, action) {
+export default function userReducer(state = initialRegistrationlState, action) {
   switch (action.type) {
     case RegistrationConstants.REGISTER_SUCCESS:
       return Object.assign(
@@ -13,8 +13,6 @@ export default function userReducer(state = initialUser, action) {
       );
     case RegistrationConstants.REGISTER_REQUEST:
       return Object.assign({ registering: true });
-    case 'SAMPLE_STRING':
-      return 'SUCCESS';
     default:
       return state;
   }

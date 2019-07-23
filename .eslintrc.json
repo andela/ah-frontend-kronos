@@ -1,7 +1,7 @@
-{
+{ 
+  "parser":"babel-eslint",
   "env": {
     "browser": true,
-    "node": true,
     "es6": true,
     "jest": true
   },
@@ -16,33 +16,42 @@
     "ecmaFeatures": {
       "jsx": true
     },
-    "ecmaVersion": 2018,
-    "sourceType": "module"
-  },
-  "parser": "babel-eslint",
-  "rules": {
-    "no-shadow": "off",
-    "no-debugger": "off",
-    "no-console": "off",
-    "no-unused-vars": "warn",
-    "react/prop-types": "warn",
-    "react/prefer-stateless-function": 0,
-    "import/no-named-as-default": 0,
-    "import/prefer-default-export": "off",
-    "react/jsx-filename-extension": [
-      1,
-      {
-        "extensions": [
-          ".js",
-          ".jsx"
-        ]
-      }
-    ]
-  },
+    
+    "extends": [
+      "eslint:recommended",
+      "airbnb",
+      "plugin:react/recommended",
+      "plugin:import/errors",
+      "plugin:import/warnings"
+    ],
+    
+    "parserOptions": {
+      "ecmaFeatures": {
+        "jsx": true
+      },
+      "ecmaVersion": 2018,
+      "sourceType": "module"
+    },
+    "rules": {
+      "no-shadow": "off",
+      "no-debugger": "off",
+      "no-console": "off",
+      "no-unused-vars": "warn",
+      "react/prop-types": "warn",
+      "react/prefer-stateless-function": 0,
+      "react/jsx-filename-extension": [
+        1,
+        {
+          "extensions": [".js", ".jsx"]
+        }
+      ]
+    },
+    
   "settings": {
     "react": {
       "version": "detect"
     }
   },
   "root": true
+}
 }

@@ -9,6 +9,7 @@ import '../../assets/scss/Landing.scss';
 
 export class Articles extends Component {
   componentDidMount() {
+    // eslint-disable-next-line no-shadow
     const { fetchArticles } = this.props;
     fetchArticles();
   }

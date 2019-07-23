@@ -53,7 +53,7 @@ export class Navigation extends React.Component {
                     Create Article
                   </Link>
                   <Link to="/articles" className="btn btn-light action-buttons">View Articles</Link>
-                  <Link to="/logout" className="btn btn-light action-buttons">
+                  <Link to="/" className="btn btn-light action-buttons">
                     Logout
                   </Link>
                 </React.Fragment>
@@ -84,7 +84,8 @@ Navigation.propTypes = {
 };
 
 export const mapStateToProps = state => ({
-  loggedIn: state.socialLoginReducer.logged_in,
+  loggedIn: state.loginReducer.isUserLoggedIn
+    ? state.loginReducer.logged_in : state.socialLoginReducer.logged_in,
 });
 
 export default connect(mapStateToProps)(Navigation);

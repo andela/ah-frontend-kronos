@@ -19,6 +19,7 @@ export class Article extends Component {
   }
 
   componentDidMount() {
+    // eslint-disable-next-line no-shadow
     const { getSingleArticle } = this.props;
     const {
       match: {
@@ -33,6 +34,7 @@ export class Article extends Component {
 
   handleSubmit() {
     const { slug } = this.state;
+    // eslint-disable-next-line no-shadow
     const { deleteArticle } = this.props;
     deleteArticle(slug);
   }

@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 import React, { Component } from 'react';
 import GoogleLogin from 'react-google-login';
 import { connect } from 'react-redux';
@@ -7,6 +8,8 @@ import LoginGoogle from '../../../actions/socialLogin/GoogleActions';
 
 export class GoogleOption extends Component {
   responseGoogle = (response) => {
+    // eslint-disable-next-line no-shadow
+    // eslint-disable-next-line react/prop-types
     const { LoginGoogle } = this.props;
     const accessToken = LoginGoogle(response.tokenId);
     return accessToken;

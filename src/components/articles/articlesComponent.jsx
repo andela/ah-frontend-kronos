@@ -18,10 +18,10 @@ export class Articles extends Component {
 
     const articlesList = articles.map(article => (
       <div className="col-sm-6 item" key={article.slug}>
-        <div className="row">
+        <div className="row article">
           <div className="col-md-12 col-lg-5">
             <Link to={`/${article.slug}`}>
-              <img className="img-fluid" alt="article_image" src={article.image} />
+              <img className="img-article" alt="article_image" src={article.image} />
             </Link>
           </div>
           <div className="col">

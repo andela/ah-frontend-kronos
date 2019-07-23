@@ -10,12 +10,13 @@ export const fetchProfile = () => (dispatch) => {
   dispatch({
     type: profileActionTypes.VIEW_PROFILE_REQUEST,
   });
-  return axios.get(`${URLS.BACKEND_URL}/api/profiles/${sessionStorage.getItem('username')}`, {
-    headers: {
-      'content-type': 'application/json',
-      Authorization: `Bearer ${sessionStorage.getItem('token')}`,
-    },
-  })
+  return axios
+    .get(`${URLS.BACKEND_URL}/api/profiles/${sessionStorage.getItem('username')}`, {
+      headers: {
+        'content-type': 'application/json',
+        Authorization: `Bearer ${sessionStorage.getItem('token')}`,
+      },
+    })
     .then((response) => {
       dispatch({
         type: profileActionTypes.VIEW_PROFILE_SUCCESS,
@@ -30,18 +31,21 @@ export const fetchProfile = () => (dispatch) => {
     });
 };
 
-
 export const editProfile = newProfile => (dispatch) => {
   dispatch({
     type: profileActionTypes.VIEW_PROFILE_REQUEST,
   });
-  return axios.put(`${URLS.BACKEND_URL}/api/profiles/${sessionStorage.getItem('username')}/edit`, newProfile,
-    {
-      headers: {
-        'content-type': 'application/json',
-        Authorization: `Bearer ${sessionStorage.getItem('token')}`,
+  return axios
+    .put(
+      `${URLS.BACKEND_URL}/api/profiles/${sessionStorage.getItem('username')}/edit`,
+      newProfile,
+      {
+        headers: {
+          'content-type': 'application/json',
+          Authorization: `Bearer ${sessionStorage.getItem('token')}`,
+        },
       },
-    })
+    )
     .then((response) => {
       dispatch({
         type: profileActionTypes.EDIT_PROFILE_SUCCESS,
@@ -53,7 +57,7 @@ export const editProfile = newProfile => (dispatch) => {
     .catch((error) => {
       dispatch({
         type: profileActionTypes.EDIT_PROFILE_FAILED,
-        payload: error.response.data.profile.detail,
+        payload: error.response.data.profile,
       });
       toastFailure('Update failed, try again!', 'A');
     });

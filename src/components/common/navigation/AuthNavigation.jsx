@@ -1,6 +1,3 @@
-/* eslint-disable no-shadow */
-/* eslint-disable react/forbid-prop-types */
-/* eslint-disable jsx-a11y/no-interactive-element-to-noninteractive-role */
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
@@ -10,7 +7,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import history from '../../../utils/history';
 import { fetchProfile } from '../../../actions/profile/ProfileAction';
-
 
 export class Navigation extends React.Component {
   constructor(props) {
@@ -22,7 +18,7 @@ export class Navigation extends React.Component {
 
   componentDidMount() {
     const { fetchProfile } = this.props;
-    fetchProfile();
+    fetchProfile(sessionStorage.getItem('username'));
   }
 
   componentWillReceiveProps(nextProps) {
@@ -42,7 +38,7 @@ export class Navigation extends React.Component {
       image: null,
     });
     history.push('/login');
-  }
+  };
 
   render() {
     const { image } = this.state;
@@ -50,16 +46,19 @@ export class Navigation extends React.Component {
     return (
       <nav className="navbar navbar-light navbar-expand-md navbar-fixed-top navigation-clean-button">
         <div className="container">
-          <Link to="/" className="navbar-brand"><span>Authors-haven</span></Link>
-          <button type="button" data-toggle="collapse" data-target="#navcol-1" className="navbar-toggler">
+          <Link to="/" className="navbar-brand">
+            <span>Authors-haven</span>
+          </Link>
+          <button
+            type="button"
+            data-toggle="collapse"
+            data-target="#navcol-1"
+            className="navbar-toggler"
+          >
             <span className="sr-only">Toggle navigation</span>
             <span className="navbar-toggler-icon" />
-
           </button>
-          <div
-            className="collapse navbar-collapse"
-            id="navcol-1"
-          >
+          <div className="collapse navbar-collapse" id="navcol-1">
             <div className="ml-auto navbar-text actions">
               {
                 (loggedIn === 'true')
@@ -111,13 +110,17 @@ Navigation.defaultProps = {
 
 Navigation.propTypes = {
   fetchProfile: PropTypes.func,
-  profile: PropTypes.object,
+  profile: PropTypes.shape({}),
 };
 
 export const mapStateToProps = state => ({
   profile: state.profile,
   loggedIn: state.loginReducer.isUserLoggedIn
-    ? state.loginReducer.logged_in : state.socialLoginReducer.logged_in,
+    ? state.loginReducer.logged_in
+    : state.socialLoginReducer.logged_in,
 });
 
-export default connect(mapStateToProps, { fetchProfile })(Navigation);
+export default connect(
+  mapStateToProps,
+  { fetchProfile },
+)(Navigation);

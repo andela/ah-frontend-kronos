@@ -30,6 +30,14 @@ export const initialArticlesState = {
   articles: [],
 };
 
+export const initialPaginationState = {
+  isFetching: true,
+  articles: [],
+  next: null,
+  previous: null,
+};
+
+
 export const initialUser = {
   isUserLoggedIn: false,
   isLoggingIn: null,

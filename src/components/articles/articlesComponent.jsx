@@ -1,21 +1,60 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import Loading from '../common/Loading';
+import React, { Component } from 'react';
+
 import fetchArticles from '../../actions/articles/articlesActions';
+import Loading from '../common/Loading';
+import Pagination from './pagination';
+
 import '../../assets/scss/Landing.scss';
 import ViewArticleRating from './rating/ViewArticleRating';
 
 export class Articles extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentPage: 1,
+      totalNumberOfPages: 1,
+    };
+  }
+
   componentDidMount() {
-    const { fetchArticles } = this.props;
-    fetchArticles();
+    const { allArticles } = this.props;
+    allArticles();
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const { count } = nextProps;
+    this.setState({
+      totalNumberOfPages: Math.ceil(count / 5),
+    });
+  }
+
+  handlePagination = (url, pageChange) => {
+    const { allArticles } = this.props;
+    const { currentPage, totalNumberOfPages } = this.state;
+    const pageNumber = currentPage;
+    if ((currentPage + pageChange) > totalNumberOfPages) {
+      this.setState({
+        currentPage: totalNumberOfPages,
+      });
+    } else if ((currentPage + pageChange) < 1) {
+      this.setState({
+        currentPage: 1,
+      });
+    } else {
+      this.setState({
+        currentPage: pageNumber + pageChange,
+      });
+      allArticles(url);
+    }
   }
 
   render() {
-    const { articles, isFetching } = this.props;
+    const {
+      articles, isFetching,
+    } = this.props;
 
     const articlesList = articles.map(article => (
       <div className="col-sm-6 item" key={article.slug}>
@@ -50,11 +89,15 @@ export class Articles extends Component {
         </div>
       </div>
     ));
+    const {
+      next, previous,
+    } = this.props;
+    const { currentPage, totalNumberOfPages } = this.state;
     if (isFetching) {
       return <Loading className="article-loader" />;
     }
     return (
-      <div>
+      <React.Fragment>
         <div className="projects-horizontal">
           <div className="container">
             <div className="intro">
@@ -76,18 +119,30 @@ export class Articles extends Component {
             <div className="row projects">{articlesList}</div>
           </div>
         </div>
-      </div>
+        <Pagination
+          next={next}
+          previous={previous}
+          currentPage={currentPage}
+          totalNumberOfPages={totalNumberOfPages}
+          handlePagination={this.handlePagination}
+        />
+      </React.Fragment>
     );
   }
 }
 
 Articles.defaultProps = {
   isFetching: false,
+  next: null,
+  previous: null,
 };
 
 Articles.propTypes = {
-  fetchArticles: PropTypes.func.isRequired,
+  allArticles: PropTypes.func.isRequired,
   isFetching: PropTypes.bool,
+  next: PropTypes.string,
+  count: PropTypes.number.isRequired,
+  previous: PropTypes.string,
   articles: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
@@ -102,11 +157,17 @@ Articles.propTypes = {
     }),
   ).isRequired,
 };
+
 export const mapStateToProps = (state) => {
-  const { articles, isFetching } = state.articlesReducer;
-  return { articles, isFetching };
+  const {
+    articles, isFetching, next, previous, count,
+  } = state.articlesReducer;
+  return {
+    articles, isFetching, next, previous, count,
+  };
 };
+
 export default connect(
   mapStateToProps,
-  { fetchArticles },
+  { allArticles: fetchArticles },
 )(Articles);

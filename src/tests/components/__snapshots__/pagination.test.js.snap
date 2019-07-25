@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Pagination /> matches snapshot 1`] = `
+<div
+  className="pagination"
+>
+  <button
+    disabled={true}
+    name="previous"
+    onClick={[Function]}
+    type="button"
+  >
+    Previous
+  </button>
+  <span>
+    1/1
+      pages
+  </span>
+  <button
+    disabled={true}
+    name="next"
+    onClick={[Function]}
+    type="button"
+  >
+    Next
+  </button>
+</div>
+`;

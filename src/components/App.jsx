@@ -14,10 +14,10 @@ export default function App() {
   });
   return (
     <Provider store={store}>
-      <div>
+      <React.Fragment>
         <ToastContainer enableMultiContainer containerId="A" />
         <Routes />
-      </div>
+      </React.Fragment>
     </Provider>
   );
 }

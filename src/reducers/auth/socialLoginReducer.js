@@ -20,8 +20,8 @@ const socialLoginReducer = (state = initialSocialAuthenticationState, action) =>
       return {
         ...state,
         isGoogleLoggedIn: true,
-        GoogleToken: action.payload,
         logged_in: true,
+        GoogleToken: action.payload,
       };
     case GOOGLE_AUTH_FAIL:
       return {
@@ -40,8 +40,8 @@ const socialLoginReducer = (state = initialSocialAuthenticationState, action) =>
       return {
         ...state,
         isFacebookLoggedIn: true,
-        FacebookToken: action.payload,
         logged_in: true,
+        FacebookToken: action.payload,
       };
     case FACEBOOK_AUTH_FAIL:
       return {

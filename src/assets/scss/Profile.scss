@@ -1,0 +1,84 @@
+$circular: 50%;
+$square-image: 220px;
+$btn-display: inline-block;
+$btn-font-weight: 400;
+$btn-margin-left: 5px;
+$text-align: center;
+$vertical-align: middle;
+$btn-webkit-user-select: none;
+$btn-moz-user-select: none;
+$btn-ms-user-select: none;
+$btn-user-select: none;
+$btn-padding: .375rem .75rem;
+$btn-font-size: 1rem;
+$btn-line-height: 1.5;
+$btn-border-radius: .25rem;
+$red-color: red;
+$btn-font-size: 1rem;
+$btn-line-height: 1.5;
+$btn-border-radius: .25rem;
+$white-color: #fff;
+$blue-color: #023873;
+
+
+.view-profile-form {
+  min-height: 100%;
+  margin: 120px auto 100px;
+}
+
+.avatar {
+    width: $square-image;
+    height: $square-image;
+    background-size: cover;
+    background-color: rgba(145, 145, 146, 0.568);
+    background-position: top center;
+    border-radius: $circular;
+}
+
+.upload-button{
+  background-color: azure;
+}
+
+.avatar-bg {
+    width: $square-image;
+    height: $square-image;
+    vertical-align: middle;
+    border-radius: $circular;
+}
+
+.Error {
+  color: $red-color;
+}
+
+.profile-label {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+[type=cancel], [type=edit] {
+  display: $btn-display;
+  font-weight: $btn-font-weight;
+  text-align: $text-align;
+  vertical-align: $vertical-align;
+  -webkit-user-select: $btn-webkit-user-select;
+  -moz-user-select: $btn-moz-user-select;
+  -ms-user-select: $btn-ms-user-select;
+  user-select: $btn-user-select;
+  padding: $btn-padding;
+  font-size: $btn-font-size;
+  line-height: $btn-line-height;
+  border-radius: $btn-border-radius;
+  color: $white-color;
+}
+
+[type=cancel]{
+  margin-left: 5px;
+  background-color: $red-color;
+  border: 1px solid $red-color;
+}
+
+[type=edit], [type=submit] {
+  color: $white-color;
+  background-color: $blue-color;
+  border: 1px solid $blue-color;
+}

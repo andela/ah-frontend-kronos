@@ -6,7 +6,7 @@ export const initialSocialAuthenticationState = {
   logged_in: false,
 };
 
-export const initialRegistrationlState = {
+export const initialRegistrationState = {
   registering: false,
   registered: false,
   message: '',
@@ -28,4 +28,10 @@ export const initialArticlesState = {
 export const initialUser = {
   isUserLoggedIn: false,
   isLoggingIn: null,
+};
+
+export const initialProfileState = {
+  profile: {},
+  isLoading: false,
+  editSuccess: false,
 };

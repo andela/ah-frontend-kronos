@@ -39,6 +39,7 @@ export class LoginContainer extends React.Component {
 
     await loginAction(loginInfo);
 
+    this.setState({ isLoading: false });
     this.handleClearForm();
   }
 

@@ -18,6 +18,8 @@ describe('Article Component', () => {
     },
     article: { ...testArticle },
     getSingleArticle: jest.fn(),
+    deleteArticle: jest.fn(),
+    likingArticle: jest.fn(),
     isFetching: false,
   };
   const component = shallow(<Article {...singleArticleProps} />);
@@ -28,10 +30,39 @@ describe('Article Component', () => {
   it('should return article', () => {
     const mockState = { singleArticleReducer: { article: testArticle, isFetching: false } };
     const singleArticleProps = mapStateToProps(mockState);
-    expect(singleArticleProps).toStrictEqual({ article: testArticle, isFetching: false });
+    expect(singleArticleProps).toEqual({ article: testArticle, isFetching: false });
   });
   it('should display loader while fetching', () => {
     component.setProps({ isFetching: true });
     expect(component.find('Loading').exists()).toBe(true);
+  });
+
+  it('should handle delete of an article', () => {
+    const wrapperInst = component.instance();
+    wrapperInst.handleSubmit();
+    expect(wrapperInst.props.deleteArticle).toBeCalled();
+  });
+
+  it('should handle like of an article when like button is pressed', () => {
+    component.setState({
+      slug: 'article-slug',
+    });
+
+
+    const mockedEvent = { target: { value: 'true' } };
+
+    const wrapperInst = component.instance();
+    wrapperInst.handleLikes(mockedEvent);
+    expect(wrapperInst.props.likingArticle).toBeCalled();
+  });
+
+  it('should handle dislike of an article when dislike button is pressed', () => {
+    component.setState({
+      slug: 'article-slug',
+    });
+    const mockedEvent = { target: { value: 'false' } };
+    const wrapperInst = component.instance();
+    wrapperInst.handleLikes(mockedEvent);
+    expect(wrapperInst.props.likingArticle).toBeCalled();
   });
 });

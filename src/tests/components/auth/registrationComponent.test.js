@@ -54,6 +54,7 @@ function renderNavigation(args) {
   return shallow(<Navigation {...props} />);
 }
 
+
 it('should render Navigation', () => {
   const wrapper = renderNavigation();
   expect(wrapper).toMatchSnapshot();

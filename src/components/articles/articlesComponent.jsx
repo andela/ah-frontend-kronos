@@ -9,7 +9,6 @@ import '../../assets/scss/Landing.scss';
 
 export class Articles extends Component {
   componentDidMount() {
-    // eslint-disable-next-line no-shadow
     const { fetchArticles } = this.props;
     fetchArticles();
   }
@@ -40,9 +39,9 @@ export class Articles extends Component {
                 {' '}
                 Read
               </span>
-              <i className="far fa-thumbs-up">45</i>
+              <i className="far fa-thumbs-up">{article.likes_count}</i>
               <span />
-              <i className="far fa-thumbs-down">12</i>
+              <i className="far fa-thumbs-down">{article.dislikes_count}</i>
               <br />
             </div>
           </div>

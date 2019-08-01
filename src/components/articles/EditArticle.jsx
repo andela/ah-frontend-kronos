@@ -74,9 +74,9 @@ export class EditArticle extends Component {
             progress,
           });
         },
-        (error) => {
+        () => {
           this.setState({
-            progress: `Image upload failed! Try again. ${error}`,
+            progress: 'Image upload failed! Try again.',
           });
         },
         () => {

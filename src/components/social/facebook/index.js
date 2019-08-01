@@ -1,5 +1,3 @@
-/* eslint-disable no-shadow */
-/* eslint-disable react/prop-types */
 import React, { Component } from 'react';
 import FacebookLogin from 'react-facebook-login';
 import PropTypes from 'prop-types';

@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import getSingleArticle from '../../actions/articles/articleActions';
 import Loading from '../common/Loading';
+import ReportComponent from './report/reportComponent';
 import { deleteArticle } from '../../actions/articles/articleAction';
 import { likingArticle } from '../../actions/articles/likeDislikeAction';
 
@@ -173,11 +174,13 @@ export class Article extends Component {
                     ) : null
                   }
                 </p>
+
                 <ul className="tags">
                   <li className="tag">Tag1</li>
                   <li className="tag">Tag2</li>
                   <li className="tag">Tag3</li>
                 </ul>
+                { <ReportComponent articleSlug={article.slug} /> }
                 <div
                   className="modal fade"
                   id="exampleModal"

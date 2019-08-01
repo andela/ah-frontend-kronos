@@ -125,6 +125,15 @@
   }
 }
 
+.close-report-form{
+  color: red;
+  border: none;
+  float: right;
+  text-align: right;
+  width: 100%;
+  background-color: white !important;
+}
+
 .tags {
   list-style: none;
   margin: 0;
@@ -175,6 +184,14 @@
       border-left-color: rgb(2, 56, 115);
     }
   }
+}
+
+.report-article{
+  color: red;
+  text-decoration: none;
+  margin-top: 14px;
+  font-size:1.5em;
+  background-color: white;
 }
 
 .article-loader {

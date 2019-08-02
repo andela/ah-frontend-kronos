@@ -12,6 +12,7 @@ import { deleteArticle } from '../../actions/articles/articleAction';
 import { likingArticle } from '../../actions/articles/likeDislikeAction';
 import { followAuthorAction, unfollowAuthorAction } from '../../actions/profile/followActions';
 import FollowButton from '../common/FollowButton';
+import RateArticleComponentContainer from './rating/RateArticleComponentContainer';
 
 export class Article extends Component {
   constructor(props) {
@@ -98,6 +99,8 @@ export class Article extends Component {
     if (isFetching) {
       return <Loading className="article-loader" />;
     }
+
+
     return (
       <div className="article-dual-column">
         <div className="container">
@@ -142,9 +145,15 @@ read
 
                 <div className="text">
                   <img alt="" src={article.image} className="img-fluid" />
-
+                  <br />
                   <p>{article.body}</p>
                 </div>
+
+                <div className="ratings-stars purple-color">
+                  { JSON.parse(sessionStorage.getItem('isLoggedIn')) ? 'Rate this article' : 'Log-in to rate this article'}
+                </div>
+                <div className="ratings-stars"><RateArticleComponentContainer articleSlug={article.slug} articleRating={article.rating} /></div>
+
                 <p className="article-icons">
                   <button type="button" className="fa fa-bookmark" />
                   <button type="button" className="fa fa-heart" />

@@ -24,8 +24,8 @@ export class LoginContainer extends React.Component {
   }
 
   handleSubmit = async (e) => {
-    this.setState({ isLoading: true });
     e.preventDefault();
+    this.setState({ isLoading: true });
     const { email, password } = this.state;
     const loginInfo = {
       email,
@@ -38,9 +38,7 @@ export class LoginContainer extends React.Component {
     }
 
     await loginAction(loginInfo);
-
-    this.setState({ isLoading: false });
-    this.handleClearForm();
+    await this.handleClearForm();
   }
 
   validateEmailPasswordEntry(email, password) {

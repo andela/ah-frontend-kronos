@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RateArticleComponentContainer Component matches snapshot 1`] = `
+<ViewArticleRating
+  handleMouseOut={[Function]}
+  handleMouseOver={[Function]}
+  handleRating={[Function]}
+  rating={0}
+/>
+`;
+
+exports[`RateArticleComponentContainer Component should render correctly 1`] = `
+<ViewArticleRating
+  handleMouseOut={[Function]}
+  handleMouseOver={[Function]}
+  handleRating={[Function]}
+  rating={0}
+/>
+`;

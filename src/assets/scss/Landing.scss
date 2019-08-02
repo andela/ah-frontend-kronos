@@ -23,12 +23,34 @@ img {
   width:200px;
   border-radius: 5%;
 
+.row {
+  padding: 20px;
 }
 .input-group-text {
   height: 50px;
 }
 .article-details i {
   padding: 6px;
+}
+.checked {
+  color: orange;
+}
+ .rating-star{
+   width: 3px;
+   height: 3px;
+   padding: 5px;
+ }
+.rating-unrated{
+  color: blueviolet;
+  text-decoration: none;
+}
+.rate-star:hover{
+  color: orange;
+  text-decoration: none;
+}
+.ratings-div{
+  width: 100%;
+  max-width: 100%;
 }
 $color_1: #fff;
 $color_2: #000000;
@@ -43,3 +65,4 @@ $background_color_3: rgba(0, 0, 0, 0.1);
 $background_color_4: #20638f;
 $background_color_5: rgb(2, 56, 115);
 $border_left_color_1: rgb(2, 56, 115);
+}

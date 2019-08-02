@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import Loading from '../common/Loading';
 import fetchArticles from '../../actions/articles/articlesActions';
 import '../../assets/scss/Landing.scss';
+import ViewArticleRating from './rating/ViewArticleRating';
 
 export class Articles extends Component {
   componentDidMount() {
@@ -43,6 +44,7 @@ export class Articles extends Component {
               <span />
               <i className="far fa-thumbs-down">{article.dislikes_count}</i>
               <br />
+              <div className="ratings-stars"><ViewArticleRating rating={article.rating} /></div>
             </div>
           </div>
         </div>

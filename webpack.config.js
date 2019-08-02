@@ -4,6 +4,11 @@ const path = require('path');
 
 module.exports = {
   entry: './src/index',
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: '/',
+    filename: 'main.js',
+  },
   devtool: 'cheap-module-source-map',
   devServer: {
     stats: 'minimal',

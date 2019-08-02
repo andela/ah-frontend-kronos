@@ -39,4 +39,5 @@ export const initialProfileState = {
   profile: {},
   isLoading: false,
   editSuccess: false,
+  isFollowing: false,
 };

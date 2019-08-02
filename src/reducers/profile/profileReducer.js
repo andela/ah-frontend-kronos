@@ -1,7 +1,6 @@
 import { profileActionTypes } from '../../actions/actionTypes';
 import { initialProfileState } from '../initialState';
 
-
 export default function (state = initialProfileState, action) {
   switch (action.type) {
     case profileActionTypes.VIEW_PROFILE_REQUEST:
@@ -35,6 +34,7 @@ export default function (state = initialProfileState, action) {
         isLoading: false,
         editFailure: true,
       };
+
     default:
       return state;
   }

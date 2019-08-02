@@ -24,7 +24,7 @@ const getSingleArticle = slug => (dispatch) => {
     .catch((error) => {
       dispatch({
         type: ArticleConstants.ARTICLE_FETCH_NOT_FOUND,
-        payload: error.response.data,
+        payload: error.response,
       });
     });
 };

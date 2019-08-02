@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /* eslint-disable react/no-access-state-in-setstate */
 import React, { Component } from 'react';
 import '../../assets/scss/article.scss';
@@ -9,6 +10,8 @@ import Loading from '../common/Loading';
 import ReportComponent from './report/reportComponent';
 import { deleteArticle } from '../../actions/articles/articleAction';
 import { likingArticle } from '../../actions/articles/likeDislikeAction';
+import { followAuthorAction, unfollowAuthorAction } from '../../actions/profile/followActions';
+import FollowButton from '../common/FollowButton';
 
 export class Article extends Component {
   constructor(props) {
@@ -28,6 +31,7 @@ export class Article extends Component {
         params: { slug },
       },
     } = this.props;
+
     getSingleArticle(slug);
     this.setState({
       slug,
@@ -36,7 +40,9 @@ export class Article extends Component {
 
   componentWillReceiveProps(nextProps) {
     // eslint-disable-next-line camelcase
-    const { article: { user_like_status, likes_count, dislikes_count } } = nextProps;
+    const {
+      article: { user_like_status, likes_count, dislikes_count },
+    } = nextProps;
     this.setState({
       hasLiked: user_like_status,
       likesCount: likes_count,
@@ -64,13 +70,21 @@ export class Article extends Component {
       disLikeCount: countForDisLike + 1,
     });
     return likingArticle(slug, { like_article: false });
-  }
+  };
+
+  unfollowUser = (username) => {
+    unfollowAuthorAction(username);
+  };
+
+  followUser = (username) => {
+    followAuthorAction(username);
+  };
 
   handleSubmit = () => {
     const { slug } = this.state;
     const { deleteArticle } = this.props;
     deleteArticle(slug);
-  }
+  };
 
   render() {
     const { hasLiked, likesCount, disLikeCount } = this.state;
@@ -80,6 +94,7 @@ export class Article extends Component {
       month: 'short',
       year: 'numeric',
     });
+    const authorized = sessionStorage.getItem('isLoggedIn');
     if (isFetching) {
       return <Loading className="article-loader" />;
     }
@@ -97,12 +112,32 @@ export class Article extends Component {
             <div className="row article-row">
               <div className="col-md-10 col-lg-7 offset-md-1 offset-lg-0">
                 <div className="article-details">
-                  <span />
-                  <span>{article.author.username}</span>
-                  <span className="date">{createdAt}</span>
-                  <span>
-                    {`${article.read_time} read`}
-                  </span>
+                  <div className="display-author">
+                    <img alt="" src={article.author.image} className="author-image" />
+                    {sessionStorage.getItem('username') !== article.author.username
+                    && authorized === 'true' ? (
+                      <FollowButton
+                        username={article.author.username}
+                        following={article.author.following}
+                        followUser={this.followUser}
+                        unfollowUser={this.unfollowUser}
+                      />
+                      ) : null}
+                    <div className="my-author">
+                      <Link to={`/profile/${article.author.username}`}>
+                        <span>{article.author.username}</span>
+                      </Link>
+                      <span className="date">{createdAt}</span>
+                    </div>
+                  </div>
+
+                  <p>
+                    <span className="reading-time">
+                      {article.read_time}
+                      {' '}
+read
+                    </span>
+                  </p>
                 </div>
 
                 <div className="text">
@@ -136,43 +171,41 @@ export class Article extends Component {
                     </button>
                   </React.Fragment>
 
-                  {sessionStorage.getItem('username') === article.author.username
-                    ? (
-                      <React.Fragment>
-                        <Link
-                          to={{
-                            pathname: '/update-article',
-                            state: {
-                              articleData: {
-                                title: article.title,
-                                description: article.description,
-                                body: article.body,
-                                slug: article.slug,
-                                image: article.image,
-                              },
+                  {sessionStorage.getItem('username') === article.author.username ? (
+                    <React.Fragment>
+                      <Link
+                        to={{
+                          pathname: '/update-article',
+                          state: {
+                            articleData: {
+                              title: article.title,
+                              description: article.description,
+                              body: article.body,
+                              slug: article.slug,
+                              image: article.image,
                             },
-                          }}
-                          className="fa fa-edit"
-                        />
-                        <Link
-                          to={{
-                            state: {
-                              articleData: {
-                                title: article.title,
-                                description: article.description,
-                                body: article.body,
-                                slug: article.slug,
-                                image: article.image,
-                              },
+                          },
+                        }}
+                        className="fa fa-edit"
+                      />
+                      <Link
+                        to={{
+                          state: {
+                            articleData: {
+                              title: article.title,
+                              description: article.description,
+                              body: article.body,
+                              slug: article.slug,
+                              image: article.image,
                             },
-                          }}
-                          className="fa fa-trash"
-                          data-toggle="modal"
-                          data-target="#exampleModal"
-                        />
-                      </React.Fragment>
-                    ) : null
-                  }
+                          },
+                        }}
+                        className="fa fa-trash"
+                        data-toggle="modal"
+                        data-target="#exampleModal"
+                      />
+                    </React.Fragment>
+                  ) : null}
                 </p>
 
                 <ul className="tags">
@@ -245,8 +278,8 @@ Article.propTypes = {
 };
 Article.defaultProps = {
   article: {},
-  deleteArticle: () => { },
-  likingArticle: () => { },
+  deleteArticle: () => {},
+  likingArticle: () => {},
 };
 export const mapStateToProps = (state) => {
   const { article, isFetching } = state.singleArticleReducer;
@@ -259,6 +292,8 @@ export const mapStateToProps = (state) => {
 export default connect(
   mapStateToProps,
   {
-    getSingleArticle, deleteArticle, likingArticle,
+    getSingleArticle,
+    deleteArticle,
+    likingArticle,
   },
 )(Article);

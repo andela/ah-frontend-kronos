@@ -1,4 +1,5 @@
 import reducer from '../../../reducers/profile/profileReducer';
+import followReducer from '../../../reducers/profile/followReducer';
 import * as types from '../../../actions/actionTypes';
 
 describe('edit reducer initial state', () => {
@@ -6,6 +7,7 @@ describe('edit reducer initial state', () => {
     profile: {},
     isLoading: false,
     editSuccess: false,
+    isFollowing: false,
   };
   it('should return the initial state', () => {
     expect(reducer(undefined, {})).toEqual(initialState);
@@ -46,12 +48,12 @@ describe('edit reducer initial state', () => {
   });
 });
 
-
 describe('view reducer initial state', () => {
   const initialState = {
     profile: {},
     isLoading: false,
     editSuccess: false,
+    isFollowing: false,
   };
   it('should return the initial state', () => {
     expect(reducer(undefined, {})).toEqual(initialState);
@@ -99,5 +101,19 @@ describe('view reducer initial state', () => {
       isLoading: false,
       error: { isLoading: true },
     });
+  });
+  it('return all the users followers', () => {
+    const followersfetchingAction = {
+      type: types.profileActionTypes.FETCH_FOLLOWING_PROFILES,
+      payload: ['fred', 'Anorld'],
+    };
+    const followersfetchingsuccess = {
+      followers: ['fred', 'Anorld'],
+      isFollowing: false,
+      isLoading: false,
+      profile: {},
+      editSuccess: false,
+    };
+    expect(followReducer(initialState, followersfetchingAction)).toEqual(followersfetchingsuccess);
   });
 });

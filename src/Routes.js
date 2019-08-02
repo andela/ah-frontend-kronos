@@ -13,6 +13,7 @@ import Articles from './components/articles/articlesComponent';
 import Article from './components/articles/articleComponent';
 import Footer from './components/common/Footer/Footer';
 import PrivateRoute from './utils/privateRoute';
+import AuthorProfile from './components/profile/authorProfile';
 
 function Routes() {
   return (
@@ -21,12 +22,40 @@ function Routes() {
       <Switch>
         <Route exact path="/" component={Articles} />
         <Route path="/signup" component={SignUpForm} />
-        <PrivateRoute exact path="/editProfile" component={UpdateProfileForm} isAuthenticated={sessionStorage.getItem('isLoggedIn')} />
-        <PrivateRoute exact path="/viewProfile" component={ViewProfileForm} isAuthenticated={sessionStorage.getItem('isLoggedIn')} />
+        <PrivateRoute
+          exact
+          path="/editProfile"
+          component={UpdateProfileForm}
+          isAuthenticated={sessionStorage.getItem('isLoggedIn')}
+        />
+        <PrivateRoute
+          exact
+          path="/viewProfile"
+          component={ViewProfileForm}
+          isAuthenticated={sessionStorage.getItem('isLoggedIn')}
+        />
         <Route path="/login" component={LoginContainer} />
-        <PrivateRoute path="/update-article" component={EditArticle} isAuthenticated={sessionStorage.getItem('isLoggedIn')} />
-        <PrivateRoute path="/create-article" component={CreateArticle} isAuthenticated={sessionStorage.getItem('isLoggedIn')} />
-        <PrivateRoute path="/articles" component={Articles} isAuthenticated={sessionStorage.getItem('isLoggedIn')} />
+        <PrivateRoute
+          path="/update-article"
+          component={EditArticle}
+          isAuthenticated={sessionStorage.getItem('isLoggedIn')}
+        />
+        <PrivateRoute
+          path="/create-article"
+          component={CreateArticle}
+          isAuthenticated={sessionStorage.getItem('isLoggedIn')}
+        />
+        <PrivateRoute
+          path="/articles"
+          component={Articles}
+          isAuthenticated={sessionStorage.getItem('isLoggedIn')}
+        />
+        <PrivateRoute
+          exact
+          path="/profile/:username"
+          component={AuthorProfile}
+          isAuthenticated={sessionStorage.getItem('isLoggedIn')}
+        />
         <Route path="/:slug" component={Article} />
       </Switch>
       <Footer />

@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ReportArticle /> should match snapshot when loading 1`] = `ShallowWrapper {}`;
+
+exports[`<ReportArticle /> should match snapshot when not loading 1`] = `ShallowWrapper {}`;

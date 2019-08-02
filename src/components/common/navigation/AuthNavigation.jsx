@@ -78,6 +78,7 @@ export class Navigation extends React.Component {
                         >
                           {(image === null) || !image ? (<img className="rounded-circle" src="https://vignette.wikia.nocookie.net/caramella-girls/images/9/99/Blankpfp.png/revision/latest?cb=20190122015011" width="50hv" height="50hv" />)
                             : (<img className="rounded-circle" src={image} width="50hv" height="50hv" />)}
+                          {' '}
                           {sessionStorage.getItem('username')}
                         </a>
                         <div className="dropdown-menu dropdown-default" aria-labelledby="navbarDropdownMenuLink-333">

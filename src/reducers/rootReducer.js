@@ -7,6 +7,7 @@ import articlesReducer from './articles/articlesReducers';
 import singleArticleReducer from './articles/singleArticleReducer';
 import profileReducer from './profile/profileReducer';
 import articlesLikeReducer from './articles/articleLikeDislikeReducer';
+import reportReducer from './articles/reportReducer';
 
 export default combineReducers({
   user: userReducer,
@@ -17,4 +18,5 @@ export default combineReducers({
   loginReducer,
   profile: profileReducer,
   articlesLikeReducer,
+  reportReducer,
 });

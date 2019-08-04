@@ -16,6 +16,12 @@ describe('Articles Reducer', () => {
       type: ArticleConstants.FETCH_ARTICLES,
       payload: articles,
     });
-    expect(newState).toEqual({ articles, isFetching: false });
+    expect(newState).toEqual({
+      articles: undefined,
+      count: undefined,
+      isFetching: false,
+      next: undefined,
+      previous: undefined,
+    });
   });
 });

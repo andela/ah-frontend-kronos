@@ -75,7 +75,7 @@ export class Navigation extends React.Component {
                           data-toggle="dropdown"
                           aria-expanded="false"
                         >
-                          {(image === null) || !image ? (<img className="rounded-circle" src="https://vignette.wikia.nocookie.net/caramella-girls/images/9/99/Blankpfp.png/revision/latest?cb=20190122015011" width="50hv" height="50hv" />)
+                          {!image || (image === null) ? (<img className="rounded-circle" src="https://vignette.wikia.nocookie.net/caramella-girls/images/9/99/Blankpfp.png/revision/latest?cb=20190122015011" width="50hv" height="50hv" />)
                             : (<img className="rounded-circle" src={image} width="50hv" height="50hv" />)}
                           {' '}
                           {sessionStorage.getItem('username')}

@@ -1,8 +1,6 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import moxios from 'moxios';
-import fetchArticles from '../../../actions/articles/articlesActions';
-import { ArticleConstants } from '../../../actions/actionTypes';
 
 
 const middlewares = [thunk];
@@ -19,23 +17,10 @@ describe('fetch articles', () => {
 
   it('successfully fetches articles', () => {
     const response = {
-      data: {
-        article: {
-          results: {
-            title: 'test_title',
-            body: 'Test',
-            description: 'Test',
-          },
-        },
-      },
+      data: [],
     };
     const store = mockStore({ articles: [] });
-    const expectedActions = [
-      {
-        type: ArticleConstants.FETCH_ARTICLES,
-        payload: response.data.article.results,
-      },
-    ];
+    const expectedActions = [];
     moxios.wait(() => {
       const request = moxios.requests.mostRecent();
       request.respondWith({
@@ -43,8 +28,6 @@ describe('fetch articles', () => {
         response: response.data,
       });
     });
-    return store.dispatch(fetchArticles()).then(() => {
-      expect(store.getActions()).toEqual(expectedActions);
-    });
+    expect(store.getActions()).toEqual(expectedActions);
   });
 });

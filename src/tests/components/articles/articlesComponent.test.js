@@ -14,7 +14,16 @@ describe('Article Component', () => {
         author: { username: 'author' },
       },
     ],
-    fetchArticles: jest.fn(),
+    count: 2,
+    currentPage: 1,
+    next: 'http//:hello',
+    previous: 'http//:great',
+    url: 'http//:great',
+    totalNumberOfPages: 3,
+    allArticles: jest.fn(),
+    componentDidMount: jest.fn(),
+    handlePagination: jest.fn(),
+    componentWillReceiveProps: jest.fn(),
   };
   const component = shallow(<Articles {...props} />);
 
@@ -22,8 +31,50 @@ describe('Article Component', () => {
     expect(component).toMatchSnapshot();
   });
   it('should match state', () => {
-    const mockState = { articlesReducer: { articles: [], isFetching: true } };
+    const mockState = {
+      articlesReducer: {
+        articles: [], isFetching: true, count: 1, next: 'hello', previous: 'great',
+      },
+    };
     const componentProps = mapStateToProps(mockState);
-    expect(componentProps).toStrictEqual({ articles: [], isFetching: true });
+    expect(componentProps).toStrictEqual({
+      articles: [],
+      count: 1,
+      isFetching: true,
+      next: 'hello',
+      previous: 'great',
+    });
+  });
+  it('componentWillRecieveProps', () => {
+    const wrapper = shallow(<Articles {...props} />);
+    wrapper.setProps({
+      count: 2,
+    });
+    expect(props.count).toBe(2);
+  });
+  it('should handle pagination if totalNumberOfPages less the pageChange', () => {
+    const wrapper = shallow(<Articles {...props} />);
+    wrapper.setState({
+      currentPage: 3,
+    });
+    wrapper.instance().handlePagination(props.url, 3);
+    expect(props.totalNumberOfPages).toBe(3);
+  });
+  it('should handle pagination if currentPage and pageChange are less than 1', () => {
+    const wrapper = shallow(<Articles {...props} />);
+    wrapper.setState({
+      currentPage: 1,
+    });
+    wrapper.instance().handlePagination(props.url, -1);
+    expect(props.currentPage).toBe(1);
+  });
+  it('should handle pagination if currentPage and pageChange are equal to totalNumberOfPages', () => {
+    const wrapper = shallow(<Articles {...props} />);
+    wrapper.setState({
+      currentPage: 1,
+      totalNumberOfPages: 4,
+    });
+    wrapper.instance().handlePagination(props.url, 2);
+    expect(props.currentPage).toBe(1);
   });
 });

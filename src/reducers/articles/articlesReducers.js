@@ -11,7 +11,10 @@ const articlesReducer = (state = initialArticlesState, action) => {
     case ArticleConstants.FETCH_ARTICLES:
       return {
         ...state,
-        articles: action.payload,
+        articles: action.payload.results,
+        count: action.payload.count,
+        next: action.payload.next,
+        previous: action.payload.previous,
         isFetching: false,
       };
     default:

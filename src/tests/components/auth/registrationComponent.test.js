@@ -53,8 +53,6 @@ function renderNavigation(args) {
   const props = { ...defaultProps, ...args };
   return shallow(<Navigation {...props} />);
 }
-
-
 it('should render Navigation', () => {
   const wrapper = renderNavigation();
   expect(wrapper).toMatchSnapshot();
@@ -63,6 +61,11 @@ it('should render Navigation', () => {
 describe('registration page', () => {
   const wrapper = renderSignUpForm();
   const wrapperInst = wrapper.instance();
+
+  it('should render Navigation', () => {
+    const wrapper = renderNavigation();
+    expect(wrapper).toMatchSnapshot();
+  });
 
   it('should render Loading in form', () => {
     const loader = renderLoading();

@@ -41,3 +41,5 @@ export const initialProfileState = {
   editSuccess: false,
   isFollowing: false,
 };
+
+export const initialCommentState = { comments: [] };
